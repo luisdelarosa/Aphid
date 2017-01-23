@@ -8,10 +8,10 @@ A lightweight MQTT 3.1.1 client written in pure Swift 3
 
 ## Setup your project to use Aphid 
 
-1. On Linux, install OpenSSL (if not already installed):
+1. On Linux, install OpenSSL and libssl-dev (if not already installed):
 
     ```bash
-    sudo apt-get install openssl
+    sudo apt-get install openssl libssl-dev
     ```
 
 2. In Package.swift, add Aphid as a dependency for your project.
