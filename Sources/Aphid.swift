@@ -324,6 +324,17 @@ extension Aphid {
 // SSL Certification Initialization: Must be called before connect
 extension Aphid {
 
+     public func setSSL(caCertPath: String? = nil, certPath: String? = nil, keyPath: String? = nil) throws {
+
+        let SSLConfig = SSLService.Configuration(withCACertificatePath caCertPath, usingCertificateFile: certPath, withKeyFile: keyPath)
+        
+        config.SSLConfig = SSLConfig
+
+         if socket == nil { socket = try Socket.create(family: .inet6, type: .stream, proto: .tcp) }
+
+        socket?.delegate = try SSLService(usingConfiguration: SSLConfig)
+    }
+ 
     public func setSSL(certPath: String? = nil, keyPath: String? = nil) throws {
 
         let SSLConfig = SSLService.Configuration(withCACertificateDirectory: nil, usingCertificateFile: certPath, withKeyFile: keyPath)
