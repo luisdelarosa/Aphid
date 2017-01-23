@@ -326,7 +326,7 @@ extension Aphid {
 
      public func setSSL(caCertPath: String? = nil, certPath: String? = nil, keyPath: String? = nil) throws {
 
-        let SSLConfig = SSLService.Configuration(withCACertificatePath: caCertPath, usingCertificateFile: certPath, withKeyFile: keyPath)
+        let SSLConfig = SSLService.Configuration(withCACertificateFilePath: caCertPath, usingCertificateFile: certPath, withKeyFile: keyPath)
         
         config.SSLConfig = SSLConfig
 
